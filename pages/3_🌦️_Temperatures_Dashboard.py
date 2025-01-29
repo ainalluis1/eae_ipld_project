@@ -57,7 +57,9 @@ unique_cities_list = temps_df["City"].unique().tolist()
 num_unique_cities = len(unique_cities_list)
 
 # TODO: Ex 3.4: Which are the minimum and maximum dates?
-temps_df["Date"] = pd.to_datetime(temps_df["Date"])
+#temps_df["Date"] = pd.to_datetime(temps_df["Date"])
+temps_df["Date"] = pd.to_datetime(temps_df["Date"]).dt.date
+
 
 min_date = temps_df["Date"].min()
 max_date = temps_df["Date"].max()
