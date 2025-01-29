@@ -14,7 +14,7 @@ with st.sidebar:
     st.image("eae_img.png", width=200)
     st.header("Introduction to Programming Languages for Data")
     st.write("###")
-    st.write("***Final Project - Dec 2023***")
+    st.write("***Final Project - February 2025***")
     st.write("**Author:** Aina Lluis Huelmo")
     st.write("**Instructor:** [Enric Domingo](https://github.com/enricd)")
 
