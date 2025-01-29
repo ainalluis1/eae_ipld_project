@@ -141,7 +141,7 @@ if unique_cities_list is not None and len(selected_cities) > 0:
 
     temps_df["Date"] = pd.to_datetime(temps_df["Date"])
 
-    plt.figure(figsize=(15, 5))
+    fig = plt.figure(figsize=(15, 5)) 
 
     for city in selected_cities:
         city_df = temps_df[temps_df["City"] == city]
@@ -158,7 +158,8 @@ if unique_cities_list is not None and len(selected_cities) > 0:
     
     c.pyplot(fig)
 
-    plt.figure(figsize=(10, 5))
+    fig = plt.figure(figsize=(10, 5))  
+
 
     for city in selected_cities:
         city_df_period = temps_df[(temps_df["City"] == city) & (temps_df["Date"].dt.date >= start_date) & (temps_df["Date"].dt.date <= end_date)]
