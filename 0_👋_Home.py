@@ -53,13 +53,11 @@ st.subheader("About Me")
 st.write("""
 - 🧑‍💻 I am currently working as a Data Scientist in Xvolv.s> 
 
-- 🛩️ prev: Student of the master in Big Data & Business Analytics. Previously graduated in Applied Statistics.
+- 🛩️ Student of the master in Big Data & Business Analytics. Previously graduated in Applied Statistics.
 
-- ❤️ <Your Passion and/or Interests>
+- ❤️ High interest in data modelling, Data Science and Big Data
 
-- 🤖 <Your Personal Projects>
-
-- 🏂 <Your Hobbies>
+- 🏂 I love travelling and skiing 
 
 - 📫 How to reach me: ainalluis3@gmail.com
 
