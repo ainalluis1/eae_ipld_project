@@ -136,8 +136,7 @@ if unique_cities_list is not None and len(selected_cities) > 0:
     selected_cities = ["Munich", "Buenos Aires", "Tokyo"]
     city_colors = {"Munich": "deeppink", "Buenos Aires": "turquoise", "Tokyo": "dodgerblue"}
 
-    start_date = pd.to_datetime("2008-01-01").date()
-    end_date = pd.to_datetime("2010-12-31").date()
+    
 
     temps_df["Date"] = pd.to_datetime(temps_df["Date"])
 
