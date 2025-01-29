@@ -29,7 +29,7 @@ st.divider()
 
 @st.cache_data
 def load_data():
-    data_path = "/Users/ainalluis/eae_ipld_project/data/cities_temperatures.csv"
+    data_path = "data/cities_temperatures.csv"
     temps_df = pd.read_csv(data_path)
 
     if temps_df is not None:
