@@ -51,7 +51,7 @@ st.subheader("About Me")
 
 # TODO: Modify and adapt the following lines to your info, you can add or remove some details if you want
 st.write("""
-- 🧑‍💻 I am currently working as a Data Scientist in Xvolv.s> 
+- 🧑‍💻 I am currently working as a Data Scientist in Xvolv.
 
 - 🛩️ Student of the master in Big Data & Business Analytics. Previously graduated in Applied Statistics.
 
