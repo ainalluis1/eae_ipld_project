@@ -84,8 +84,8 @@ st.write("##")
 st.header("Basic Information")
 
 cols1 = st.columns([4, 1, 6])
-if unique_countries_list is not None:
-    cols1[0].dataframe(pd.Series(unique_countries_list, name="Cities"), use_container_width=True)
+if unique_cities_list is not None:
+    cols1[0].dataframe(pd.Series(unique_cities_list, name="Cities"), use_container_width=True)
 else:
     cols1[0].write("⚠️ You still need to develop the Ex 3.3.")
 
