@@ -128,7 +128,7 @@ if unique_countries_list is not None:
 else:
     st.subheader("⚠️ You still need to develop the Ex 3.3.")
 
-if unique_countries_list is not None and len(selected_cities) > 0:
+if unique_cities_list is not None and len(selected_cities) > 0:
     c = st.container(border=True)
 
     # TODO: Ex 3.7: Plot the temperatures over time for the selected cities for the selected time period,
