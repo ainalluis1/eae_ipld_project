@@ -113,17 +113,18 @@ else:
 
 # ----- Plotting the temperatures over time for the selected cities -----
 
+
+
+
 st.write("##")
 st.header("Comparing the Temperatures of the Cities")
 
 if unique_cities_list is not None:
-    # Getting the list of cities to compare from the user
     selected_cities = st.multiselect("Select the cities to compare:", unique_cities_list, default=["Buenos Aires", "Dakar"], max_selections=4)
 
     cols2 = st.columns([6, 1, 6])
-
-    start_date = cols2[0].date_input("Select the start date:", pd.to_datetime("2009-01-01").date())     # Getting the start date from the user
-    end_date = cols2[2].date_input("Select the end date:", pd.to_datetime("2018-12-31").date())         # Getting the end date from the user
+    start_date = cols2[0].date_input("Select the start date:", pd.to_datetime("2009-01-01").date())  
+    end_date = cols2[2].date_input("Select the end date:", pd.to_datetime("2018-12-31").date())  
 
 else:
     st.subheader("⚠️ You still need to develop the Ex 3.3.")
@@ -131,23 +132,20 @@ else:
 if unique_cities_list is not None and len(selected_cities) > 0:
     c = st.container(border=True)
 
-    # TODO: Ex 3.7: Plot the temperatures over time for the selected cities for the selected time period,
-    # every city has to be its own line with a different color.
-    #selected_cities = ["Munich", "Buenos Aires", "Tokyo"]
-    #city_colors = {"Munich": "deeppink", "Buenos Aires": "turquoise", "Tokyo": "dodgerblue"}
-    city_colors = ["deeppink", "turquoise", "dodgerblue", "gold", "limegreen", "purple", "red", "cyan", "orange", "brown"]
+    # Paleta de colores cíclica
+    color_palette = ["deeppink", "turquoise", "dodgerblue", "gold", "limegreen", "purple", "red", "cyan", "orange", "brown"]
 
-
-    
-
+    # Convertir la columna Date a formato datetime
     temps_df["Date"] = pd.to_datetime(temps_df["Date"])
 
-    fig = plt.figure(figsize=(15, 5)) 
+    # Crear la figura para la línea de temperaturas
+    fig = plt.figure(figsize=(15, 5))
 
-    for city in selected_cities:
+    for i, city in enumerate(selected_cities):
         city_df = temps_df[temps_df["City"] == city]
         city_df_period = city_df[(city_df["Date"].dt.date >= start_date) & (city_df["Date"].dt.date <= end_date)]
-        plt.plot(city_df_period["Date"], city_df_period["AvgTemperatureCelsius"], marker="o", linestyle="-", color=city_colors[city], label=city)
+        plt.plot(city_df_period["Date"], city_df_period["AvgTemperatureCelsius"], marker="o", linestyle="-", 
+                 color=color_palette[i % len(color_palette)], label=city)  # Usa colores de forma cíclica
 
     plt.title(f"Temperature Trends for Selected Cities ({start_date} to {end_date})")
     plt.xlabel("Date")
@@ -155,25 +153,26 @@ if unique_cities_list is not None and len(selected_cities) > 0:
     plt.legend()
     plt.xticks(rotation=45)
     plt.grid(True)
-    #plt.show()
-    
-    c.pyplot(fig)
 
+    st.pyplot(fig)
+
+    # Crear la figura para el histograma
     fig = plt.figure(figsize=(10, 5))  
 
-
-    for city in selected_cities:
-        city_df_period = temps_df[(temps_df["City"] == city) & (temps_df["Date"].dt.date >= start_date) & (temps_df["Date"].dt.date <= end_date)]
-        plt.hist(city_df_period["AvgTemperatureCelsius"], bins=20, alpha=0.5, edgecolor="black", color=city_colors[city], label=city)
+    for i, city in enumerate(selected_cities):
+        city_df_period = temps_df[(temps_df["City"] == city) & 
+                                  (temps_df["Date"].dt.date >= start_date) & 
+                                  (temps_df["Date"].dt.date <= end_date)]
+        plt.hist(city_df_period["AvgTemperatureCelsius"], bins=20, alpha=0.5, edgecolor="black", 
+                 color=color_palette[i % len(color_palette)], label=city)
 
     plt.title(f"Temperature Distribution for Selected Cities ({start_date} to {end_date})")
     plt.xlabel("Temperature (°C)")
     plt.ylabel("Frequency")
     plt.legend()
     plt.grid(True)
-    #plt.show()
 
-    c.pyplot(fig)
+    st.pyplot(fig)
 
 
 
