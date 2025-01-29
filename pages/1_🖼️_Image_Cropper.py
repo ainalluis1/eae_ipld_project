@@ -31,7 +31,7 @@ img = st.file_uploader("Upload an image:", type=["png", "jpg", "jpeg"])
 
 if img is None:
     is_example = True
-    with Image.open("data/golden.png") as img:
+    with Image.open("data/golden.jpg") as img:
         img_arr = np.array(img)
 else:
     with Image.open(img) as img:
