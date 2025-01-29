@@ -114,7 +114,7 @@ else:
 st.write("##")
 st.header("Comparing the Temperatures of the Cities")
 
-if unique_countries_list is not None:
+if unique_cities_list is not None:
     # Getting the list of cities to compare from the user
     selected_cities = st.multiselect("Select the cities to compare:", unique_countries_list, default=["Buenos Aires", "Dakar"], max_selections=4)
 
@@ -126,7 +126,7 @@ if unique_countries_list is not None:
 else:
     st.subheader("⚠️ You still need to develop the Ex 3.3.")
 
-if unique_countries_list is not None and len(selected_cities) > 0:
+if unique_cities_list is not None and len(selected_cities) > 0:
     c = st.container(border=True)
 
     # TODO: Ex 3.7: Plot the temperatures over time for the selected cities for the selected time period,
