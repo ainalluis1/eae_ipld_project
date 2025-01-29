@@ -134,7 +134,9 @@ if unique_cities_list is not None and len(selected_cities) > 0:
     # TODO: Ex 3.7: Plot the temperatures over time for the selected cities for the selected time period,
     # every city has to be its own line with a different color.
     #selected_cities = ["Munich", "Buenos Aires", "Tokyo"]
-    city_colors = {"Munich": "deeppink", "Buenos Aires": "turquoise", "Tokyo": "dodgerblue"}
+    #city_colors = {"Munich": "deeppink", "Buenos Aires": "turquoise", "Tokyo": "dodgerblue"}
+    city_colors = ["deeppink", "turquoise", "dodgerblue", "gold", "limegreen", "purple", "red", "cyan", "orange", "brown"]
+
 
     
 
