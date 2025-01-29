@@ -116,7 +116,7 @@ else:
 st.write("##")
 st.header("Comparing the Temperatures of the Cities")
 
-if unique_countries_list is not None:
+if unique_cities_list is not None:
     # Getting the list of cities to compare from the user
     selected_cities = st.multiselect("Select the cities to compare:", unique_countries_list, default=["Buenos Aires", "Dakar"], max_selections=4)
 
