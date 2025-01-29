@@ -9,7 +9,7 @@ from PIL import Image
 
 # ----- Page configs -----
 st.set_page_config(
-    page_title="Aina's Portfolio",
+    page_title="<Your Name> Portfolio",
     page_icon="📊",
 )
 
@@ -45,10 +45,10 @@ st.write("#")
 # TODO: Ex. 1.1: Get the minimum and maximum values for the vertical and horizontal ranges, so the size of the img_arr array -----
 
 min_height = 0 
-max_height = img_arr.shape[0]  
+max_height = None   # TODO: Replace None with the maximum height of the image using np.shape() function
 
 min_width = 0
-max_width = img_arr.shape[1] 
+max_width = None    # TODO: Replace None with the maximum width of the image using np.shape() function   
 
 
 # ----- Creating the sliders to receive the user input with the dimensions to crop the image ----- 
@@ -69,12 +69,8 @@ else:
 
 
 # TODO: Ex. 1.3: Crop the image array img_arr using the crop_min_h, crop_max_h, crop_min_w and crop_max_w values -----
-if (0 <= crop_min_h < crop_max_h <= max_height) and (0 <= crop_min_w < crop_max_w <= max_width):
-    crop_arr = img_arr[crop_min_h:crop_max_h, crop_min_w:crop_max_w]  # Ahora crop_arr almacena el recorte
 
-else:
-    crop_arr = None  # Mantener None si los valores no son válidos
-    print("Error: No se puede realizar el recorte debido a valores fuera del rango permitido.")
+crop_arr = None  # TODO: Generate the crop array into a new variable, use NumPy array slicing
 
 
 # ----- Displaying the cropped image and creating a download button to download the image -----

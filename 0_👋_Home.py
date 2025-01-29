@@ -15,7 +15,7 @@ with st.sidebar:
     st.header("Introduction to Programming Languages for Data")
     st.write("###")
     st.write("***Final Project - Dec 2023***")
-    st.write("**Author:** <Your Name>")
+    st.write("**Author:** Aina Lluis Huelmo")
     st.write("**Instructor:** [Enric Domingo](https://github.com/enricd)")
 
 
@@ -39,7 +39,7 @@ st.write(f"""
 
 
 # ----- Personal title or short description -----
-current_role = "Current Role and/or Studies or Description"   # TODO: Change this
+current_role = "Data Scientist"   # TODO: Change this
 
 st.write(f"""<div style="text-align: center;"><h4><i>{current_role}</i></h4></div>""", unsafe_allow_html=True)
 
@@ -51,9 +51,9 @@ st.subheader("About Me")
 
 # TODO: Modify and adapt the following lines to your info, you can add or remove some details if you want
 st.write("""
-- 🧑‍💻 I am a <Current Role and/or Studies> 
+- 🧑‍💻 I am currently working as a Data Scientist in Xvolv.s> 
 
-- 🛩️ prev: <Previous Experience, Background or Studies>
+- 🛩️ prev: Student of the master in Big Data & Business Analytics. Previously graduated in Applied Statistics.
 
 - ❤️ <Your Passion and/or Interests>
 
@@ -61,9 +61,14 @@ st.write("""
 
 - 🏂 <Your Hobbies>
 
-- 📫 How to reach me: <Your Email>
+- 📫 How to reach me: ainalluis3@gmail.com
 
-- 🏠 Barcelona
+- 🏠 L'Ametlla del Vallès, Barcelona
+
+- Linkedin: www.linkedin.com/in/aina-lluis
+
+
+
 """)
 
 # Feel free to add other points like your Linkedin, Github, Social Media, etc.

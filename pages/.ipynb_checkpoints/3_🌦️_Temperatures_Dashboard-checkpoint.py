@@ -8,7 +8,7 @@ import streamlit as st
 
 # ----- Page configs -----
 st.set_page_config(
-    page_title="Aina's Portfolio",
+    page_title="<Your Name> Portfolio",
     page_icon="📊",
 )
 
@@ -29,8 +29,9 @@ st.divider()
 
 @st.cache_data
 def load_data():
-    data_path = "/Users/ainalluis/eae_ipld_project/data/cities_temperatures.csv"
-    temps_df = pd.read_csv(data_path)
+    data_path = "data/cities_temperatures.csv"
+
+    temps_df = None  # TODO: Ex 3.1: Load the dataset using Pandas, use the data_path variable and set the index column to "show_id"
 
     if temps_df is not None:
         temps_df["Date"] = pd.to_datetime(temps_df["Date"]).dt.date
@@ -48,32 +49,27 @@ with st.expander("Check the complete dataset:"):
 # ----- Data transformation -----
 
 # TODO: Ex 3.2: Create a new column called `AvgTemperatureCelsius` that contains the temperature in Celsius degrees.
-temps_df["AvgTemperatureCelsius"] = (temps_df["AvgTemperatureFahrenheit"] - 32) * 5 / 9
+# temps_df["AvgTemperatureCelsius"] = ...       # uncomment this line to complete it
+
 
 # ----- Extracting some basic information from the dataset -----
 
 # TODO: Ex 3.3: How many different cities are there? Provide a list of them.
-unique_cities_list = temps_df["City"].unique().tolist()
-num_unique_cities = len(unique_cities_list)
+unique_countries_list = None
 
 # TODO: Ex 3.4: Which are the minimum and maximum dates?
-temps_df["Date"] = pd.to_datetime(temps_df["Date"])
-
-min_date = temps_df["Date"].min()
-max_date = temps_df["Date"].max()
+min_date = None
+max_date = None
 
 # TODO:  Ex 3.5: What are the global minimum and maximum temperatures? Find the city and the date of each of them.
-min_temp = temps_df["AvgTemperatureCelsius"].min()
-max_temp = temps_df["AvgTemperatureCelsius"].max()
+min_temp = None
+max_temp = None
 
-min_temp_row = temps_df[temps_df["AvgTemperatureCelsius"] == min_temp].iloc[0]
-max_temp_row = temps_df[temps_df["AvgTemperatureCelsius"] == max_temp].iloc[0]
+min_temp_city = None
+min_temp_date = None
 
-min_temp_city = min_temp_row["City"]
-min_temp_date = min_temp_row["Date"]
-
-max_temp_city = max_temp_row["City"]
-max_temp_date = max_temp_row["Date"]
+max_temp_city = None
+max_temp_date = None
 
 
 # ----- Displaying the extracted information metrics -----
@@ -127,47 +123,43 @@ else:
     st.subheader("⚠️ You still need to develop the Ex 3.3.")
 
 if unique_countries_list is not None and len(selected_cities) > 0:
+
     c = st.container(border=True)
 
     # TODO: Ex 3.7: Plot the temperatures over time for the selected cities for the selected time period,
     # every city has to be its own line with a different color.
-    selected_cities = ["Munich", "Buenos Aires", "Tokyo"]
-    city_colors = {"Munich": "deeppink", "Buenos Aires": "turquoise", "Tokyo": "dodgerblue"}
 
-    start_date = pd.to_datetime("2008-01-01").date()
-    end_date = pd.to_datetime("2010-12-31").date()
+    fig = plt.figure(figsize=(10, 5))
 
-    temps_df["Date"] = pd.to_datetime(temps_df["Date"])
+    # for city in selected_cities:
+    #     city_df = None            # TODO
+    #     city_df_period = None     # TODO
+    #     plt.plot()                # TODO 
+    # plt.title()   # TODO
+    # plt.xlabel()  # TODO
+    # plt.ylabel()  # TODO
 
-    plt.figure(figsize=(15, 5))
-
-    for city in selected_cities:
-        city_df = temps_df[temps_df["City"] == city]
-        city_df_period = city_df[(city_df["Date"].dt.date >= start_date) & (city_df["Date"].dt.date <= end_date)]
-        plt.plot(city_df_period["Date"], city_df_period["AvgTemperatureCelsius"], marker="o", linestyle="-", color=city_colors[city], label=city)
-
-    plt.title(f"Temperature Trends for Selected Cities ({start_date} to {end_date})")
-    plt.xlabel("Date")
-    plt.ylabel("Temperature (°C)")
     plt.legend()
-    plt.xticks(rotation=45)
-    plt.grid(True)
-    #plt.show()
     
     c.pyplot(fig)
 
-    plt.figure(figsize=(10, 5))
 
-    for city in selected_cities:
-        city_df_period = temps_df[(temps_df["City"] == city) & (temps_df["Date"].dt.date >= start_date) & (temps_df["Date"].dt.date <= end_date)]
-        plt.hist(city_df_period["AvgTemperatureCelsius"], bins=20, alpha=0.5, edgecolor="black", color=city_colors[city], label=city)
 
-    plt.title(f"Temperature Distribution for Selected Cities ({start_date} to {end_date})")
-    plt.xlabel("Temperature (°C)")
-    plt.ylabel("Frequency")
+    # TODO: Make a histogram of the temperature reads of a list of selected cities, for the selected time period, 
+    # every city has to be its own distribution with a different color.
+
+    fig = plt.figure(figsize=(10, 5))
+
+    # for city in selected_cities:
+    #     city_df = None            # TODO
+    #     city_df_period = None     # TODO
+    #     plt.hist()                # TODO
+
+    # plt.title()   # TODO
+    # plt.xlabel()  # TODO
+    # plt.ylabel()  # TODO
+
     plt.legend()
-    plt.grid(True)
-    #plt.show()
 
     c.pyplot(fig)
 
