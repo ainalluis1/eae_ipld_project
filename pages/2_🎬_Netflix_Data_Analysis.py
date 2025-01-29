@@ -29,7 +29,7 @@ st.divider()
 
 @st.cache_data
 def load_data():
-    data_path = "eae_ipld_project/data/netflix_titles.csv"
+    data_path = "ainalluis1/eae_ipld_project/data/netflix_titles.csv"
     movies_df = pd.read_csv(data_path, index_col="show_id")
     return movies_df   # a Pandas DataFrame
 
