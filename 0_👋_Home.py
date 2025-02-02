@@ -65,7 +65,7 @@ st.write("""
 
 - Linkedin: www.linkedin.com/in/aina-lluis
 
-- Github: https://github.com/ainalluis1.git
+- Github: https://github.com/ainalluis1/eae_ipld_project.git
 
 
 
